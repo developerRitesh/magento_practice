@@ -13,7 +13,18 @@
    type=JoinProcessor
    argument_name custom_join-> customjoinclass  
    customjoinclass-> applyfunction($collection) {$collection->getSelect()->joinLeft(}
-
-
+5. plugin : di.xml
+     <type=originamclass>
+     <plugin type="ourclass" disabled sortorder>
+     ourclass
+   before(Originalclass $subject,$arguments)
+   after(Originalclass $subject,$result,$arghuments)
+   around(Originalclass $subject,callable $proceed,$arguments){$result = $proceed(...$args);}
+6.events (Magento\Framework\Event\Manager->dispatch('event_name', ['info' => $text])) observers ,
+   observer : events.xml
+   <event name="event_name"> //created with dispatch
+      <observer instance="myclass"> myclass implement \Magento\Framework\Event\ObserverInterface -> execute(Magento\Framework\Event\Observer $observer){$order = $observer->getEvent()->getOrder();}
+7. 
+      
 
    
