@@ -91,6 +91,23 @@
               }
           }
       };
+18. knockout js : magento_ui/js/core/app , data-bind="scope:mycomponent" <script x-magento-init> component, config {dynamic variables}
+    ko.computed(),ko.pureComputed(),subscribe()
+    define([
+      'uiComponent',
+       'uiRegistry'
+   ], function (Component, registry) {
+    'use strict';
+
+    return Component.extend({
+        updateCityField: function (newCity) {
+            registry.get('checkout.steps.shipping-step.shippingAddress.shipping-address-fieldset.city', function (cityComponent) {
+                cityComponent.value(newCity);
+            });
+        }
+    });
+});
+     
      
 
 
