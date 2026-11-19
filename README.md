@@ -142,6 +142,9 @@ define([
 	});
 
 });
+26. rabbit mq : see page 
+27 . shiping method : Magento\Shipping\Model\Carrier\AbstractCarrier collectRates() config.xml source 
+28 . checkout : layoutprocessor file , create plugin afterProcess($subject,$jsLayout) , this will add field , then we have to create extension attribute Magento\Quote\Api\Data\AddressInterface and create  set-shipping-information-mixin.js , 
 
 
    
