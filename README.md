@@ -92,7 +92,7 @@
           }
       };
 18. knockout js : magento_ui/js/core/app , data-bind="scope:mycomponent" <script x-magento-init> component, config {dynamic variables}
-    ko.computed(),ko.pureComputed(),subscribe()
+    ko.computed(),ko.pureComputed(),subscribe() , imports, links 
     define([
       'uiComponent',
        'uiRegistry'
@@ -100,16 +100,34 @@
     'use strict';
 
     return Component.extend({
+         defaults: {
+            availableCouponList: ko.observableArray([]),
+            isLoading: ko.observable(true),
+                        
+        },
         updateCityField: function (newCity) {
             registry.get('checkout.steps.shipping-step.shippingAddress.shipping-address-fieldset.city', function (cityComponent) {
                 cityComponent.value(newCity);
             });
         }
     });
-});
-     
-     
-
+});  
+19. indexer: indexer.xml class Test implements \Magento\Framework\Indexer\ActionInterface
+20. rest api , etc/wepapi.xml <route url="vi/customer/check" method="get"><service class="mycustominterface" method="myfunction"><resource ref=""self
+21. graphql : etc/schema.graphqls query(input1,input2):myresolver@resolver  extend Magento\Framework\GraphQl\Query\ResolverInterface resolve($field,$context,$info,$value,$args) cacheintentityinterface, X-Magento-Tags ,X-Magento-Cache-Id (customer gorup wise caching) ,  
+for varnish X-Magento-Cache-Debug: HIT
+22. eav attribute : implements DataPatchInterface {Magento\Eav\Setup\EavSetupFactory->
+   $eavSetup->addAttribute(Category::ENTITY, 'category_recommendation', [
+            'type' => 'int',
+            'label' => 'Is Recommended',
+            'input' => 'select',
+            'source' => Boolean::class,
+            'sort_order' => 26,
+            'global' => ScopedAttributeInterface::SCOPE_STORE,
+            'group' => 'General Information'
+        ]);
+24. customer_account.xml <referenceBlock name="customer_account_navigation"><argument name="path" xsi:type="string">routename/customer/index</argument>
+25. private content : <sections.xml Magento\Customer\CustomerData\SectionPoolInterface -> custom class extend implements Magento\Customer\CustomerData\SectionSourceInterface\SectionSourceInterface getSectionData();
 
 
    
