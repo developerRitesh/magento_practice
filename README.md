@@ -127,7 +127,21 @@ for varnish X-Magento-Cache-Debug: HIT
             'group' => 'General Information'
         ]);
 24. customer_account.xml <referenceBlock name="customer_account_navigation"><argument name="path" xsi:type="string">routename/customer/index</argument>
-25. private content : <sections.xml Magento\Customer\CustomerData\SectionPoolInterface -> custom class extend implements Magento\Customer\CustomerData\SectionSourceInterface\SectionSourceInterface getSectionData();
+25. private content : <sections.xml Magento\Customer\CustomerData\SectionPoolInterface  <item name="custom_section" class CustomerData/customclass  extend implements Magento\Customer\CustomerData\SectionSourceInterface\SectionSourceInterface getSectionData();
+define([
+	'uiComponent',
+	'Magento_Customer/js/customer-data'
+], function (Component, customerData) {
+	'use strict';
+
+	return Component.extend({
+    	initialize: function () {
+        	this._super();
+        	this.customsection = customerData.get('custom_section');
+    	}
+	});
+
+});
 
 
    
